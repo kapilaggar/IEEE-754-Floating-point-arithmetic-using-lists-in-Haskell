@@ -205,3 +205,19 @@ substract (a,b,c) (p,q,r)
  | isinf (a,b,c) = inf
  | isinf (p,q,r) =inf
  | otherwise = iaddition (a,b,c) (inot p,q,r)
+
+main :: IO ()
+main = do
+  putStrLn "Converting IEEE-754 examples..."
+  print $ convert_from_ieee number1
+  print $ convert_from_ieee number2
+  print $ convert_from_ieee zero
+  print $ convert_from_ieee inf
+  putStrLn "\nSum:"
+  print $ convert_from_ieee (addition number1 number2)
+
+  putStrLn "Difference:"
+  print $ convert_from_ieee (substract number1 number2)
+
+  putStrLn "Product:"
+  print $ convert_from_ieee (multiply number1 number2)
